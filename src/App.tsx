@@ -12,7 +12,6 @@ export const App = () => (
       }
       backgroundSize={"cover"}
     >
-      Hello World
       <Text
         bottom={"58px"}
         right={"5px"}
@@ -21,10 +20,18 @@ export const App = () => (
         opacity={"0.8"}
       >
         Background by{" "}
-        <a href="https://unsplash.com/@heytowner?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="https://unsplash.com/@heytowner?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+        >
           JOHN TOWNER
         </a>{" "}
-        <a href="https://unsplash.com/s/photos/wallpaper?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="https://unsplash.com/s/photos/wallpaper?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+        >
           Unsplash
         </a>
       </Text>

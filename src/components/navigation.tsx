@@ -11,15 +11,19 @@ import {
   useColorModeValue,
   //useColorMode, // Meh maybe if I feel keen
   Center,
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalOverlay,
+  // Modal,
+  // ModalBody,
+  // ModalCloseButton,
+  // ModalContent,
+  // ModalFooter,
+  // ModalHeader,
+  // ModalOverlay,
+  IconButton,
+  Text,
 } from "@chakra-ui/react";
 import { useState } from "react";
+import { FaCode, FaUserCircle } from "react-icons/fa";
+import MyModal from "./Modal/MyModal";
 // import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 
 export default function Navigation() {
@@ -35,38 +39,60 @@ export default function Navigation() {
       >
         <Flex h={14} alignItems={"center"} justifyContent={"space-between"}>
           <Menu>
-            <MenuButton
-              as={Button}
-              rounded={"full"}
-              variant={"link"}
-              cursor={"pointer"}
-              minW={0}
-            >
-              <Avatar
-                size={"sm"}
-                src={"https://avatars.dicebear.com/api/male/username.svg"}
-              />
-              David
-            </MenuButton>
+            <Flex justifyContent={"space-between"}>
+              <MenuButton
+                as={Button}
+                rounded={"full"}
+                variant={"link"}
+                cursor={"pointer"}
+                minW={0}
+                marginLeft={1}
+                marginRight={1}
+              >
+                <IconButton
+                  color="white"
+                  aria-label="user"
+                  fontSize="20px"
+                  icon={<FaUserCircle />}
+                />
+              </MenuButton>
+              {openDaveStudioCode ? (
+                <IconButton
+                  color="white"
+                  aria-label="code-icon"
+                  fontSize="20px"
+                  onClick={() => setOpenDaveStudioCode(false)}
+                  icon={<FaCode />}
+                />
+              ) : null}
+            </Flex>
             <MenuList alignItems={"center"}>
-              <br />
               <Center>
+                <br />
                 <Avatar
                   size={"2xl"}
-                  src={"https://avatars.dicebear.com/api/male/username.svg"}
+                  src={
+                    "https://avatars.githubusercontent.com/u/22126206?s=400&u=22d208536d4ab0cfda0089ad77788e36c735475e&v=4"
+                  }
                 />
+                <br />
               </Center>
-              <br />
-              <Center>
-                <p>Username</p>
+              <Center flexDirection={"column"}>
+                <Text fontSize={"xl"}>David</Text>
+                <Text fontSize={"md"}>That be this guy 😊</Text>
               </Center>
-              <br />
               <MenuDivider />
-              <MenuItem>Your Servers</MenuItem>
+              <MenuItem>About</MenuItem>
+              <MenuItem>Tunes</MenuItem>
               <MenuItem onClick={() => setOpenDaveStudioCode(true)}>
                 Dave Studio Code
               </MenuItem>
-              <MenuItem>Logout</MenuItem>
+              <MenuItem
+                as={"a"}
+                href="https://www.google.com/search?q=baby+come+back"
+              >
+                Logout
+              </MenuItem>
             </MenuList>
           </Menu>
           {/* <Button onClick={toggleColorMode}>
@@ -75,30 +101,33 @@ export default function Navigation() {
         </Flex>
       </Box>
       {openDaveStudioCode ? (
-        <Modal
-          isOpen={openDaveStudioCode}
-          onClose={() => setOpenDaveStudioCode(false)}
-          motionPreset={"slideInBottom"}
-        >
-          <ModalOverlay />
-          <ModalContent>
-            <ModalHeader>Modal Title</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody>fuck yeah</ModalBody>
+        <MyModal>Hi</MyModal>
+      ) : // <Modal
+      //   isOpen={openDaveStudioCode}
+      //   onClose={() => setOpenDaveStudioCode(false)}
+      //   motionPreset={"slideInBottom"}
+      // >
+      //   {/* <ModalOverlay /> */}
 
-            <ModalFooter>
-              <Button
-                colorScheme="blue"
-                mr={3}
-                onClick={() => setOpenDaveStudioCode(false)}
-              >
-                Close
-              </Button>
-              <Button variant="ghost">Secondary Action</Button>
-            </ModalFooter>
-          </ModalContent>
-        </Modal>
-      ) : null}
+      //   <ModalContent>
+      //     hi
+      //     {/* <ModalHeader>Modal Title</ModalHeader>
+      //       <ModalCloseButton />
+      //       <ModalBody>fuck yeah</ModalBody>
+
+      //       <ModalFooter>
+      //         <Button
+      //           colorScheme="blue"
+      //           mr={3}
+      //           onClick={() => setOpenDaveStudioCode(false)}
+      //         >
+      //           Close
+      //         </Button>
+      //         <Button variant="ghost">Secondary Action</Button>
+      //       </ModalFooter> */}
+      //   </ModalContent>
+      // </Modal>
+      null}
     </>
   );
 }
