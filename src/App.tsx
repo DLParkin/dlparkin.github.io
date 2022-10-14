@@ -1,7 +1,8 @@
 import * as React from "react";
-import { ChakraProvider, Box, Text } from "@chakra-ui/react";
+import { ChakraProvider, Box } from "@chakra-ui/react";
 import { theme } from "./styles/styles";
-import Navigation from "./components/navigation";
+import Cheers from "./components/Cheers";
+import Navigation from "./components/NavigationMenu";
 
 export const App = () => (
   <ChakraProvider theme={theme}>
@@ -12,29 +13,7 @@ export const App = () => (
       }
       backgroundSize={"cover"}
     >
-      <Text
-        bottom={"58px"}
-        right={"5px"}
-        position={"fixed"}
-        fontSize={"8px"}
-        opacity={"0.8"}
-      >
-        Background by{" "}
-        <a
-          target="_blank"
-          rel="noreferrer"
-          href="https://unsplash.com/@heytowner?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
-        >
-          JOHN TOWNER
-        </a>{" "}
-        <a
-          target="_blank"
-          rel="noreferrer"
-          href="https://unsplash.com/s/photos/wallpaper?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
-        >
-          Unsplash
-        </a>
-      </Text>
+      <Cheers />
     </Box>
     <Navigation />
   </ChakraProvider>

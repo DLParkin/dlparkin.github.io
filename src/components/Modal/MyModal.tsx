@@ -1,5 +1,5 @@
 import { Box } from "@chakra-ui/react";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import Draggable from "react-draggable";
 
 interface Props {
@@ -7,11 +7,14 @@ interface Props {
 }
 
 const MyModal = (props: Props) => {
+  const [width, setWidth] = useState<number>(100);
+  const [height, setHeight] = useState<number>(100);
+
   return (
     <Draggable>
       <Box
-        width={100}
-        height={100}
+        width={width}
+        height={height}
         backgroundColor={"gray.700"}
         borderRadius={"md"}
         position={"absolute"}

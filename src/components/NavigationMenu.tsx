@@ -9,25 +9,15 @@ import {
   MenuItem,
   MenuDivider,
   useColorModeValue,
-  //useColorMode, // Meh maybe if I feel keen
   Center,
-  // Modal,
-  // ModalBody,
-  // ModalCloseButton,
-  // ModalContent,
-  // ModalFooter,
-  // ModalHeader,
-  // ModalOverlay,
   IconButton,
   Text,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { FaCode, FaUserCircle } from "react-icons/fa";
 import MyModal from "./Modal/MyModal";
-// import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 
 export default function Navigation() {
-  //const { colorMode, toggleColorMode } = useColorMode();
   const [openDaveStudioCode, setOpenDaveStudioCode] = useState<boolean>(false);
   return (
     <>
@@ -95,39 +85,9 @@ export default function Navigation() {
               </MenuItem>
             </MenuList>
           </Menu>
-          {/* <Button onClick={toggleColorMode}>
-            {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
-          </Button> */}
         </Flex>
       </Box>
-      {openDaveStudioCode ? (
-        <MyModal>Hi</MyModal>
-      ) : // <Modal
-      //   isOpen={openDaveStudioCode}
-      //   onClose={() => setOpenDaveStudioCode(false)}
-      //   motionPreset={"slideInBottom"}
-      // >
-      //   {/* <ModalOverlay /> */}
-
-      //   <ModalContent>
-      //     hi
-      //     {/* <ModalHeader>Modal Title</ModalHeader>
-      //       <ModalCloseButton />
-      //       <ModalBody>fuck yeah</ModalBody>
-
-      //       <ModalFooter>
-      //         <Button
-      //           colorScheme="blue"
-      //           mr={3}
-      //           onClick={() => setOpenDaveStudioCode(false)}
-      //         >
-      //           Close
-      //         </Button>
-      //         <Button variant="ghost">Secondary Action</Button>
-      //       </ModalFooter> */}
-      //   </ModalContent>
-      // </Modal>
-      null}
+      {openDaveStudioCode ? <MyModal>Hi</MyModal> : null}
     </>
   );
 }
