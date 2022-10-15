@@ -1,36 +1,32 @@
 import { CloseIcon, DragHandleIcon } from "@chakra-ui/icons";
 import { Box, IconButton } from "@chakra-ui/react";
-import { ReactNode, useState } from "react";
+import { ReactNode } from "react";
 import Draggable from "react-draggable";
 
 interface Props {
   children: ReactNode;
   title: string;
   handleOnClose: () => void;
-  width?: number | string;
-  height?: number | string;
+  width?: number | string | string[];
+  minWidth?: number | string;
+  height?: number | string | string[];
   top?: number | string;
   left?: number | string;
 }
 
 const MyModal = (props: Props) => {
-  const [width] = useState<number | string>(props.width || 300);
-  const [height] = useState<number | string>(props.height || 300);
-  const [top] = useState<number | string>(props.top || "10vh");
-  const [left] = useState<number | string>(props.left || "10vw");
-
   return (
     <Draggable handle=".handle">
       <Box
-        width={width}
-        height={height}
+        width={props.width || 300}
+        height={props.height || 300}
         maxHeight={"95vh"}
-        minWidth={"200px"}
+        minWidth={props.minWidth || "200px"}
         backgroundColor={"gray.700"}
         borderRadius={"md"}
         position={"absolute"}
-        top={top}
-        left={left}
+        top={props.top || "10vh"}
+        left={props.left || "10vw"}
         boxShadow={"0px 0px 0px 1px rgb(255 255 255 / 10%)"}
         resize={"both"}
         overflow={"auto"}

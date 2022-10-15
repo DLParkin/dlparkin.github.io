@@ -1,8 +1,8 @@
 import * as React from "react";
 import { ChakraProvider, Box } from "@chakra-ui/react";
 import { theme } from "./styles/styles";
-import Cheers from "./components/Cheers";
-import Navigation from "./components/NavigationMenu";
+import Cheers from "./components/Misc/Cheers";
+import Navigation from "./components/Navigation/NavigationMenu";
 
 export const App = () => (
   <ChakraProvider theme={theme}>
