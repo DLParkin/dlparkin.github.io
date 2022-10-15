@@ -163,7 +163,7 @@ export default function Navigation() {
       ) : null}
       {openThemTunes ? (
         <MyModal
-          title="About This Site"
+          title="Play Me A Tune"
           handleOnClose={() => setOpenThemTunes(false)}
           width={["300px", "600px"]}
           height={["auto", "auto"]}

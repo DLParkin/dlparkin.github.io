@@ -33,14 +33,24 @@ const TunesPlayer = () => {
       author: "Summer Love",
     },
     {
-      name: "Best Mashups Of Popular Songs | Best Club Music Mix 2021 #12 🎉",
-      url: "https://www.youtube.com/watch?v=SNRtmwWsgHA",
-      author: "Darley Jefferson",
+      name: "Avicii, Calvin Harris, Kygo, Alok, Robin Schulz, David Guetta, Gryffin - Summer Vibes Mix",
+      url: "https://www.youtube.com/watch?v=N36chN7a",
+      author: "Rammor",
     },
     {
-      name: "Avicii, Calvin Harris, Kygo, Alok, Robin Schulz, David Guetta, Gryffin - Summer Vibes Mix",
-      url: "https://www.youtube.com/watch?v=N36chN7a-aU&t=3s",
-      author: "Rammor",
+      name: "Hardwell Live at Tomorrowland 2018 WEEK 1 [FULL SET]",
+      url: "https://www.youtube.com/watch?v=Y8N9vxYxWcc",
+      author: "Hardwell",
+    },
+    {
+      name: "Tiësto - Live @ Ultra Music Festival 2022",
+      url: "https://www.youtube.com/watch?v=e94gack-DJk",
+      author: "Tiësto",
+    },
+    {
+      name: "Mega Hits 2021 🌱 The Best Of Vocal Deep House Music Mix 2021 🌱 Summer Music #9",
+      url: "https://www.youtube.com/watch?v=or047P2NOjc",
+      author: "Helios Deep",
     },
   ];
 
@@ -58,7 +68,7 @@ const TunesPlayer = () => {
       <Box>
         <Box padding={1}>
           <Text fontSize={"sm"} marginBottom={2}>
-            Some favourite programming tunes (no particular order)
+            Some fav programming tunes (no particular order)
           </Text>
           <Box
             overflow={"auto"}
