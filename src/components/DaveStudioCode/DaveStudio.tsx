@@ -1,7 +1,7 @@
 import React from "react";
 
-const Dsc = () => {
+const DaveStudio = () => {
   return <div>Dsc</div>;
 };
 
-export default Dsc;
+export default DaveStudio;

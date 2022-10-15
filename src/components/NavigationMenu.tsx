@@ -15,6 +15,7 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { FaCode, FaUserCircle } from "react-icons/fa";
+import DaveStudio from "./DaveStudioCode/DaveStudio";
 import MyModal from "./Modal/MyModal";
 
 export default function Navigation() {
@@ -87,7 +88,14 @@ export default function Navigation() {
           </Menu>
         </Flex>
       </Box>
-      {openDaveStudioCode ? <MyModal>Hi</MyModal> : null}
+      {openDaveStudioCode ? (
+        <MyModal
+          title="Dave Studio Code"
+          handleOnClose={() => setOpenDaveStudioCode(false)}
+        >
+          <DaveStudio />
+        </MyModal>
+      ) : null}
     </>
   );
 }
