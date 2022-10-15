@@ -1,7 +1,6 @@
 import {
   Box,
   Flex,
-  Avatar,
   Button,
   Menu,
   MenuButton,
@@ -14,12 +13,18 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import { FaCode, FaUserCircle } from "react-icons/fa";
+import { FaCode, FaInfo, FaQuestion, FaUserCircle } from "react-icons/fa";
+import AboutMe from "./About/AboutMe";
+import AboutThis from "./About/AboutThis";
+import Me from "./About/Me";
 import DaveStudio from "./DaveStudioCode/DaveStudio";
 import MyModal from "./Modal/MyModal";
 
 export default function Navigation() {
   const [openDaveStudioCode, setOpenDaveStudioCode] = useState<boolean>(false);
+  const [openAbout, setOpenAbout] = useState<boolean>(false);
+  const [openAboutThis, setOpenAboutThis] = useState<boolean>(false);
+
   return (
     <>
       <Box
@@ -37,10 +42,11 @@ export default function Navigation() {
                 variant={"link"}
                 cursor={"pointer"}
                 minW={0}
-                marginLeft={1}
+                marginLeft={2}
                 marginRight={1}
               >
                 <IconButton
+                  as={"a"}
                   color="white"
                   aria-label="user"
                   fontSize="20px"
@@ -52,20 +58,36 @@ export default function Navigation() {
                   color="white"
                   aria-label="code-icon"
                   fontSize="20px"
+                  marginRight={"4px"}
                   onClick={() => setOpenDaveStudioCode(false)}
                   icon={<FaCode />}
+                />
+              ) : null}
+              {openAbout ? (
+                <IconButton
+                  color="white"
+                  aria-label="about-icon"
+                  fontSize="20px"
+                  marginRight={"4px"}
+                  onClick={() => setOpenAbout(false)}
+                  icon={<FaQuestion />}
+                />
+              ) : null}
+              {openAboutThis ? (
+                <IconButton
+                  color="white"
+                  aria-label="about-icon"
+                  fontSize="20px"
+                  marginRight={"4px"}
+                  onClick={() => setOpenAboutThis(false)}
+                  icon={<FaInfo />}
                 />
               ) : null}
             </Flex>
             <MenuList alignItems={"center"}>
               <Center>
                 <br />
-                <Avatar
-                  size={"2xl"}
-                  src={
-                    "https://avatars.githubusercontent.com/u/22126206?s=400&u=22d208536d4ab0cfda0089ad77788e36c735475e&v=4"
-                  }
-                />
+                <Me />
                 <br />
               </Center>
               <Center flexDirection={"column"}>
@@ -73,11 +95,15 @@ export default function Navigation() {
                 <Text fontSize={"md"}>That be this guy 😊</Text>
               </Center>
               <MenuDivider />
-              <MenuItem>About</MenuItem>
+              <MenuItem onClick={() => setOpenAbout(true)}>Me</MenuItem>
+              <MenuItem onClick={() => setOpenAboutThis(true)}>
+                This Site
+              </MenuItem>
               <MenuItem>Tunes</MenuItem>
               <MenuItem onClick={() => setOpenDaveStudioCode(true)}>
                 Dave Studio Code
               </MenuItem>
+              <MenuItem>Accessories</MenuItem>
               <MenuItem
                 as={"a"}
                 href="https://www.google.com/search?q=baby+come+back"
@@ -94,6 +120,27 @@ export default function Navigation() {
           handleOnClose={() => setOpenDaveStudioCode(false)}
         >
           <DaveStudio />
+        </MyModal>
+      ) : null}
+      {openAbout ? (
+        <MyModal
+          title="About Me"
+          handleOnClose={() => setOpenAbout(false)}
+          width={"80vw"}
+          height={"auto"}
+          top={"5%"}
+        >
+          <AboutMe />
+        </MyModal>
+      ) : null}
+      {openAboutThis ? (
+        <MyModal
+          title="About This Site"
+          handleOnClose={() => setOpenAboutThis(false)}
+          width={"80vw"}
+          height={"auto"}
+        >
+          <AboutThis />
         </MyModal>
       ) : null}
     </>

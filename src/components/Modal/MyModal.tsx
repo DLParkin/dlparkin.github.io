@@ -7,25 +7,30 @@ interface Props {
   children: ReactNode;
   title: string;
   handleOnClose: () => void;
-  width?: number;
-  height?: number;
+  width?: number | string;
+  height?: number | string;
+  top?: number | string;
+  left?: number | string;
 }
 
 const MyModal = (props: Props) => {
-  const [width] = useState<number>(props.width || 300);
-  const [height] = useState<number>(props.height || 300);
+  const [width] = useState<number | string>(props.width || 300);
+  const [height] = useState<number | string>(props.height || 300);
+  const [top] = useState<number | string>(props.top || "10vh");
+  const [left] = useState<number | string>(props.left || "10vw");
 
   return (
     <Draggable handle=".handle">
       <Box
         width={width}
         height={height}
+        maxHeight={"95vh"}
         minWidth={"200px"}
         backgroundColor={"gray.700"}
         borderRadius={"md"}
         position={"absolute"}
-        top={"10vh"}
-        left={"25vw"}
+        top={top}
+        left={left}
         boxShadow={"0px 0px 0px 1px rgb(255 255 255 / 10%)"}
         resize={"both"}
         overflow={"auto"}
@@ -34,7 +39,7 @@ const MyModal = (props: Props) => {
           className="handle"
           borderBottom={"1px solid rgb(255 255 255 / 30%)"}
           cursor={"grab"}
-          padding={"5px 5px 5px 5px"}
+          padding={"5px 5px 5px 10px"}
         >
           {props.title}
           <IconButton
