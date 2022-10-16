@@ -135,6 +135,8 @@ export default function Navigation() {
       {openDaveStudioCode ? (
         <MyModal
           title="Dave Studio Code"
+          width={["80%", "600px"]}
+          height={"460px"}
           handleOnClose={() => setOpenDaveStudioCode(false)}
         >
           <DaveStudio />
