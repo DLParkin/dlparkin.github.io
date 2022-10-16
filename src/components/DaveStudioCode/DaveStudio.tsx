@@ -6,7 +6,10 @@ import DSCSidebar from "./DSCSidebar";
 
 const DaveStudio = () => {
   const [editorFontSize, setEditorFontSize] = useState<number>(12);
-
+  const [selectedFile, setSelectedFile] = useState<string>(
+    "/MDNExamples/js-examples/array/array-at.js"
+  );
+  console.log(selectedFile);
   return (
     <Box height={"calc(100% - 40px)"}>
       <Grid
@@ -24,10 +27,10 @@ const DaveStudio = () => {
           />
         </GridItem>
         <GridItem area={"nav"} height={"100%"}>
-          <DSCSidebar />
+          <DSCSidebar setSelectedFile={setSelectedFile} />
         </GridItem>
         <GridItem area={"main"}>
-          <DSCMain fontSize={editorFontSize} />
+          <DSCMain fontSize={editorFontSize} selectedFile={selectedFile} />
         </GridItem>
         <GridItem
           pl="2"

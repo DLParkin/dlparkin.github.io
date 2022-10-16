@@ -1,15 +1,28 @@
 import { Flex } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CodeEditor from "@uiw/react-textarea-code-editor";
 
 interface Props {
   fontSize: number;
+  selectedFile: string;
 }
 
 const DSCMain = (props: Props) => {
-  const [code, setCode] = useState<string>(
-    `//TODO make this fun \n function add(a, b) {\n  return a + b;\n}`
-  );
+  const [code, setCode] = useState<string>("");
+
+  useEffect(() => {
+    const readSelectedFile = (selectedFile: any) => {
+      window
+        .fetch(selectedFile)
+        .then((r) => r.text())
+        .then((text) => {
+          setCode(text);
+        });
+    };
+    if (props.selectedFile) {
+      readSelectedFile(props.selectedFile);
+    }
+  }, [props.selectedFile]);
 
   document.documentElement.setAttribute("data-color-mode", "dark");
 

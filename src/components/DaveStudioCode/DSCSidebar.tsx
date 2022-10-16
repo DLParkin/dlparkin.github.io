@@ -10,9 +10,13 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { FaFile, FaFolder } from "react-icons/fa";
-import { arrayJSON } from "./MDNExamples/js-examples/array/meta";
+import { arrayJSON } from "./Snippets/array";
 
-const DSCSidebar = () => {
+interface Props {
+  setSelectedFile: (file: string) => void;
+}
+
+const DSCSidebar = (props: Props) => {
   return (
     <Flex
       height={"100%"}
@@ -50,6 +54,7 @@ const DSCSidebar = () => {
             {arrayJSON?.map((array) => {
               return (
                 <Text
+                  key={array.fileName}
                   padding={"2px"}
                   borderBottom={"1px solid rgb(255 255 255 / 30%)"}
                   _hover={{
@@ -57,6 +62,7 @@ const DSCSidebar = () => {
                     backgroundColor: "rgb(255 255 255 / 5%)",
                   }}
                   cursor={"pointer"}
+                  onClick={() => props.setSelectedFile(array.exampleCode)}
                 >
                   <Icon
                     as={FaFile}
