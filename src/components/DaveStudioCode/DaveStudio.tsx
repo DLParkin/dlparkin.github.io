@@ -10,6 +10,7 @@ const DaveStudio = () => {
   const [selectedFile, setSelectedFile] = useState<string>(
     "/MDNExamples/js-examples/array/array-at.js"
   );
+
   return (
     <Box height={"calc(100% - 40px)"}>
       <Grid
