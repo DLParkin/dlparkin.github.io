@@ -126,22 +126,22 @@ const TextInput = styled.input`
   font-family: monospace;
 `;
 
-const Header = styled.div`
-  display: flex;
-  justify-content: end;
-`;
+// const Header = styled.div`
+//   display: flex;
+//   justify-content: end;
+// `;
 
-const Title = styled.div`
-  flex-grow: 1;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  padding-left: 12px;
-  color: #888;
-`;
+// const Title = styled.div`
+//   flex-grow: 1;
+//   padding-top: 12px;
+//   padding-bottom: 12px;
+//   padding-left: 12px;
+//   color: #888;
+// `;
 
-const Tabs = styled.div`
-  display: flex;
-`;
+// const Tabs = styled.div`
+//   display: flex;
+// `;
 
 const Tab = styled.div`
   padding: 8px;
