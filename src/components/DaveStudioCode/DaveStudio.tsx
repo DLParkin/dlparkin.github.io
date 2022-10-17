@@ -1,5 +1,6 @@
 import { Box, Grid, GridItem } from "@chakra-ui/react";
 import { useState } from "react";
+import DSCCmd from "./DSCCmd";
 import DSCMain from "./DSCMain";
 import DSCMenu from "./DSCMenu";
 import DSCSidebar from "./DSCSidebar";
@@ -9,14 +10,13 @@ const DaveStudio = () => {
   const [selectedFile, setSelectedFile] = useState<string>(
     "/MDNExamples/js-examples/array/array-at.js"
   );
-  console.log(selectedFile);
   return (
     <Box height={"calc(100% - 40px)"}>
       <Grid
         templateAreas={`"head head"
                   "nav main"
                   "nav footer"`}
-        gridTemplateRows={"auto 1fr 30px"}
+        gridTemplateRows={"auto 1fr 200px"}
         gridTemplateColumns={"auto 1fr"}
         height={"100%"}
       >
@@ -33,11 +33,10 @@ const DaveStudio = () => {
           <DSCMain fontSize={editorFontSize} selectedFile={selectedFile} />
         </GridItem>
         <GridItem
-          pl="2"
           area={"footer"}
           borderTop={"1px solid rgb(255 255 255 / 30%)"}
         >
-          Footer
+          <DSCCmd selectedFile={selectedFile} />
         </GridItem>
       </Grid>
     </Box>
