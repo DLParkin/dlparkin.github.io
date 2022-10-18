@@ -1,16 +1,31 @@
-import { Box, Grid, GridItem } from "@chakra-ui/react";
+import { Box, Flex, Grid, GridItem } from "@chakra-ui/react";
 import { useState } from "react";
+import { isMobile } from "react-device-detect";
 import DSCCmd from "./DSCCmd";
 import DSCMain from "./DSCMain";
 import DSCMenu from "./DSCMenu";
 import DSCSidebar from "./DSCSidebar";
+import { JSExamples } from "./Snippets/example-files";
 
 const DaveStudio = () => {
   const [editorFontSize, setEditorFontSize] = useState<number>(12);
   const [selectedFile, setSelectedFile] = useState<string>(
-    "/MDNExamples/js-examples/array/array-at.js"
+    JSExamples[0].files[0].exampleCode
   );
 
+  if (isMobile) {
+    return (
+      <Flex flexDirection={"column"}>
+        <DSCMenu
+          setEditorFontSize={setEditorFontSize}
+          editorFontSize={editorFontSize}
+        />
+        <DSCMain fontSize={editorFontSize} selectedFile={selectedFile} />
+        <DSCCmd selectedFile={selectedFile} />
+        <DSCSidebar setSelectedFile={setSelectedFile} />
+      </Flex>
+    );
+  }
   return (
     <Box height={"calc(100% - 40px)"}>
       <Grid

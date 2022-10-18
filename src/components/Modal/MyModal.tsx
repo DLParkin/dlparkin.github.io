@@ -1,6 +1,7 @@
 import { CloseIcon, DragHandleIcon } from "@chakra-ui/icons";
 import { Box, IconButton } from "@chakra-ui/react";
 import { ReactNode } from "react";
+import { isMobile } from "react-device-detect";
 import Draggable from "react-draggable";
 
 interface Props {
@@ -25,8 +26,8 @@ const MyModal = (props: Props) => {
         backgroundColor={"gray.700"}
         borderRadius={"md"}
         position={"absolute"}
-        top={props.top || "10vh"}
-        left={props.left || "10vw"}
+        top={props.top || isMobile ? "2vh" : "10vh"}
+        left={props.left || isMobile ? "0px" : "10vw"}
         boxShadow={"0px 0px 0px 1px rgb(255 255 255 / 10%)"}
         resize={"both"}
         overflow={"auto"}
