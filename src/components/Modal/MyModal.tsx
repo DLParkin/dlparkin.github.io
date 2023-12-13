@@ -19,15 +19,15 @@ const MyModal = (props: Props) => {
   return (
     <Draggable handle=".handle">
       <Box
-        width={props.width || 300}
-        height={props.height || 300}
+        width={props.width || "98%"}
+        height={props.height || "100%"}
         maxHeight={"95vh"}
         minWidth={props.minWidth || "200px"}
         backgroundColor={"gray.700"}
         borderRadius={"md"}
         position={"absolute"}
         top={props.top || isMobile ? "2vh" : "10vh"}
-        left={props.left || isMobile ? "0px" : "10vw"}
+        left={props.left || isMobile ? "2vw" : "10vw"}
         boxShadow={"0px 0px 0px 1px rgb(255 255 255 / 10%)"}
         resize={"both"}
         overflow={"auto"}

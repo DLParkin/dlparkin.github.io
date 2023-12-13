@@ -18,20 +18,24 @@ import {
   FaInfo,
   FaMusic,
   FaQuestion,
+  FaSatellite,
   FaUserCircle,
 } from "react-icons/fa";
 import AboutMe from "../About/AboutMe";
 import AboutThis from "../About/AboutThis";
 import Me from "../About/Me";
 import DaveStudio from "../DaveStudioCode/DaveStudio";
+import MyMenuItems from "../Modal/MyMenuItems";
 import MyModal from "../Modal/MyModal";
 import TunesPlayer from "../Tunes/TunesPlayer";
+import DaveGIS from "../Websites/DaveGIS";
 
 export default function Navigation() {
   const [openDaveStudioCode, setOpenDaveStudioCode] = useState<boolean>(false);
   const [openAbout, setOpenAbout] = useState<boolean>(false);
   const [openAboutThis, setOpenAboutThis] = useState<boolean>(false);
   const [openThemTunes, setOpenThemTunes] = useState<boolean>(false);
+  const [openDaveGis, setOpenDaveGis] = useState<boolean>(false);
 
   return (
     <>
@@ -61,16 +65,17 @@ export default function Navigation() {
                   icon={<FaUserCircle />}
                 />
               </MenuButton>
-              {openDaveStudioCode ? (
-                <IconButton
-                  color="white"
-                  aria-label="code-icon"
-                  fontSize="20px"
-                  marginRight={"4px"}
-                  onClick={() => setOpenDaveStudioCode(false)}
-                  icon={<FaCode />}
-                />
-              ) : null}
+
+              <MyMenuItems
+                state={openDaveStudioCode}
+                setState={setOpenDaveStudioCode}
+                icon={<FaCode />}
+                item={<DaveStudio />}
+                title={"Dave Studio Code"}
+                width={["80%", "800px"]}
+                height={"600px"}
+              />
+              {/* // TODO change these over */}
               {openAbout ? (
                 <IconButton
                   color="white"
@@ -101,6 +106,16 @@ export default function Navigation() {
                   icon={<FaMusic />}
                 />
               ) : null}
+              {openDaveGis ? (
+                <IconButton
+                  color="white"
+                  aria-label="gis-icon"
+                  fontSize="20px"
+                  marginRight={"4px"}
+                  onClick={() => setOpenDaveGis(false)}
+                  icon={<FaSatellite />}
+                />
+              ) : null}
             </Flex>
             <MenuList alignItems={"center"}>
               <Center>
@@ -121,6 +136,7 @@ export default function Navigation() {
               <MenuItem onClick={() => setOpenDaveStudioCode(true)}>
                 Dave Studio Code
               </MenuItem>
+              <MenuItem onClick={() => setOpenDaveGis(true)}>Dave GIS</MenuItem>
               <MenuItem>Accessories</MenuItem>
               <MenuItem
                 as={"a"}
@@ -132,22 +148,12 @@ export default function Navigation() {
           </Menu>
         </Flex>
       </Box>
-      {openDaveStudioCode ? (
-        <MyModal
-          title="Dave Studio Code"
-          width={["80%", "800px"]}
-          height={"600px"}
-          handleOnClose={() => setOpenDaveStudioCode(false)}
-        >
-          <DaveStudio />
-        </MyModal>
-      ) : null}
       {openAbout ? (
         <MyModal
           title="About Me"
           handleOnClose={() => setOpenAbout(false)}
-          width={"80vw"}
           height={"auto"}
+          width={["98%", "auto"]}
           top={"5%"}
         >
           <AboutMe />
@@ -157,8 +163,6 @@ export default function Navigation() {
         <MyModal
           title="About This Site"
           handleOnClose={() => setOpenAboutThis(false)}
-          width={"80vw"}
-          height={"auto"}
         >
           <AboutThis />
         </MyModal>
@@ -167,11 +171,13 @@ export default function Navigation() {
         <MyModal
           title="Play Me A Tune"
           handleOnClose={() => setOpenThemTunes(false)}
-          width={["300px", "600px"]}
-          height={["auto", "auto"]}
-          minWidth={"400px"}
         >
           <TunesPlayer />
+        </MyModal>
+      ) : null}
+      {openDaveGis ? (
+        <MyModal title="Dave GIS" handleOnClose={() => setOpenDaveGis(false)}>
+          <DaveGIS />
         </MyModal>
       ) : null}
     </>

@@ -1,4 +1,4 @@
-import { extendTheme } from "@chakra-ui/react";
+import { extendTheme, type ThemeConfig } from "@chakra-ui/react";
 
 // TODO or not, have not decided yet
 const colors = {
@@ -9,4 +9,11 @@ const colors = {
   },
 };
 
-export const theme = extendTheme({ colors });
+const config: ThemeConfig = {
+  initialColorMode: "dark",
+  useSystemColorMode: false,
+};
+
+const theme = extendTheme({ config });
+
+export default theme;

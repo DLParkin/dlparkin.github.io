@@ -1,4 +1,4 @@
-export const arrayJSON = [
+export const arrays = [
   {
     exampleCode: "../MDNExamples/js-examples/array/array-at.js",
     fileName: "array-at.html",
