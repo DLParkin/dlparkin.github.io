@@ -17,11 +17,21 @@ interface ThemTunes {
 
 const TunesPlayer = () => {
   const [url, setUrl] = useState<string>(
-    "https://www.youtube.com/watch?v=SNRtmwWsgHA"
+    "https://www.youtube.com/watch?v=AHC302BjEhY"
   );
   const [start, setStart] = useState<boolean>(false);
 
   const themTunes: ThemTunes[] = [
+    {
+      name: "Can't Get Better Than This",
+      url: "https://www.youtube.com/watch?v=AHC302BjEhY",
+      author: "Parachute Youth",
+    },
+    {
+      name: "Alesso - Words (Feat. Zara Larsson)",
+      url: "https://www.youtube.com/watch?v=zIJEOEZdLzE",
+      author: "Alesso",
+    },
     {
       name: "Best Mashups Of Popular Songs | Best Club Music Mix 2021 #12 🎉",
       url: "https://www.youtube.com/watch?v=SNRtmwWsgHA",
